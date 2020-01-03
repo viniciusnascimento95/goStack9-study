@@ -18,3 +18,13 @@ yarn add yup
 
 #upload de arquivos usando o multar
 yarn add multer
+
+#criando tabela de arquivos
+yarn sequelize migration:create --name=create-files
+#adicionando relacionamento com a tabela de usuarios
+
+yarn sequelize migration:create --name=add-avatar-field-to-users
+yarn sequelize migration:create --name=create-appointments
+
+#lib para tratar com datas no nodejs
+yarn add date-fns@next
