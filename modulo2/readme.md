@@ -15,3 +15,6 @@ yarn add jsonwebtoken
 
 #validação de entradas
 yarn add yup
+
+#upload de arquivos usando o multar
+yarn add multer
