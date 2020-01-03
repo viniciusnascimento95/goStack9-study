@@ -12,3 +12,6 @@ yarn add bcryptjs
 
 #gerando o token com jsonwebtoken
 yarn add jsonwebtoken
+
+#validação de entradas
+yarn add yup
