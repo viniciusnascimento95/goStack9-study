@@ -34,4 +34,12 @@ docker run --name mongobarber -p 27017:27017 -d -t mongo
 
 #plugin de conexão mongoose
 
+#plugin para mongodb
 yarn add mongoose
+#plugin para enviar email nodemailer
+yarn add nodemailer
+-- Soluções para usar servidor de email produção - Amazon SES, Mailgun, Sparkpost
+-- Soluções para dev - Mailtrap (dev)
+
+#personalizando email - hendlebarsjs
+yarn add express-handlebars nodemailer-express-handlebars
