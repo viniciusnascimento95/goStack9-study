@@ -48,3 +48,12 @@ yarn add express-handlebars nodemailer-express-handlebars
 docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
 #plugin para filas
 yarn add bee-queue
+
+#monitoramento de execption
+yarn add @sentry/node@5.10.2
+#plugin para auxilia a sincronização se houver errors
+yarn add express-async-errors
+yarn add youch
+
+#configurando variaveis ambientes
+yarn add dotenv
