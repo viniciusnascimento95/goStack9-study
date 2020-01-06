@@ -43,3 +43,8 @@ yarn add nodemailer
 
 #personalizando email - hendlebarsjs
 yarn add express-handlebars nodemailer-express-handlebars
+
+#trabalhando com fila usando redis
+docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+#plugin para filas
+yarn add bee-queue
