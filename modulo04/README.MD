@@ -15,3 +15,4 @@ yarn add file-loader -D
 <!-- Plugins para components -->
 
 yarn add @babel/plugin-proposal-class-properties -D
+yarn add prop-types
