@@ -6,7 +6,13 @@ yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
 
 #fazer roteamento no DOM da aplicação
 yarn add react-router-dom
-####################
+
+Colocar css dentro do javascript 
+yarn add styled-components 
+
+Pacotes de icones
+yarn add react-icons
+##
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
