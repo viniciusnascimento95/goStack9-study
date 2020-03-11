@@ -93,3 +93,5 @@ export const List = styled.ul`
     }
   }
 `;
+
+export const IssueList = styled.ul``;
