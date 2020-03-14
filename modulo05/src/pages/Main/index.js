@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 // importando dados da api
 import api from '../../services/api';
 import Container from '../../components/Container';
-
 import { Form, SubmitButton, List } from './styles';
 
 export default class Main extends Component {
@@ -14,6 +13,7 @@ export default class Main extends Component {
     newRepo: '',
     repositories: [],
     loading: false,
+    error: null,
   };
 
   // Carregar os dados do localStorage
@@ -35,33 +35,48 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ newRepo: e.target.value, error: null });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.setState({ loading: true });
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ loading: true, error: false });
 
-    const { newRepo, repositories } = this.state;
-    const response = await api.get(`/repos/${newRepo}`);
+    try {
+      const { newRepo, repositories } = this.state;
 
-    // testando input
-    // console.log(this.state.newRepo);
-    // console.log(response.data);
+      if (newRepo === '') throw 'Você precisa indicar um repositório';
 
-    const data = {
-      name: response.data.full_name,
-    };
-    this.setState({
-      repositories: [...repositories, data],
-      newRepo: '',
-      loading: false,
-    });
+      const hasRepo = repositories.find(r => r.name === newRepo);
+
+      if (hasRepo) throw 'Repositório duplicado';
+
+      const response = await api.get(`/repos/${newRepo}`);
+
+      const data = {
+        name: response.data.full_name,
+      };
+
+      this.setState({
+        repositories: [...repositories, data],
+        newRepo: '',
+      });
+    } catch (error) {
+      this.setState({ error: true });
+    } finally {
+      this.setState({ loading: false });
+    }
   };
 
+  // testando input
+  // console.log(this.state.newRepo);
+  // console.log(response.data);
+
   render() {
-    const { newRepo, repositories, loading } = this.state;
+    const { newRepo, repositories, loading, error } = this.state;
 
     return (
       <Container>
@@ -78,11 +93,11 @@ export default class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton loading={loading ? 1 : 0}>
+          <SubmitButton loading={loading}>
             {loading ? (
-              <FaSpinner color="#fff" size={14} />
+              <FaSpinner color="#FFF" size={14} />
             ) : (
-                <FaPlus color="#fff" size={14} />
+                <FaPlus color="#FFF" size={14} />
               )}
           </SubmitButton>
         </Form>
