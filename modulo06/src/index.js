@@ -1,12 +1,42 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+// import { StyleSheet, View, Text } from 'react-native';
+import { StatusBar } from 'react-native';
+
+import './config/ReactotronConfig';
+import Routes from './routes';
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5fcff',
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: 'center',
+//     margin: 10,
+//   },
+// });
+
+export default function App() {
+  return (
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+      <Routes />
+    </>
+  );
+}
+
+// lixo da ultima versão do react
+// import {
+//   SafeAreaView,
+//   StyleSheet,
+//   ScrollView,
+//   View,
+//   Text,
+//   StatusBar,
+// } from 'react-native';
 
 // import {
 //   Header,
@@ -15,29 +45,6 @@ import {
 //   DebugInstructions,
 //   ReloadInstructions,
 // } from 'react-native/Libraries/NewAppScreen';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5fcff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>bem vindo</Text>
-      <Text style={styles.welcome}>bem</Text>
-    </View>
-  );
-}
 
 // const App: () => React$Node = () => {
 //   return (
